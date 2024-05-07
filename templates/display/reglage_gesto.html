@@ -1,0 +1,159 @@
+{% extends "./base.html" %}
+{% block centre %}
+<style>
+    .dashboard {
+        position: relative;
+        left: 250px;
+        background-color: var(--panel-color);
+        height: 120vh;
+        width: calc(100% - 250px);
+        padding: 10px 14px;
+        transition: var(--tran-05);
+    }
+
+    .dashboard .dash-content {
+        padding-top: 50px;
+    }
+
+    .dash-content .title {
+        display: flex;
+        align-items: center;
+        margin: 60px 0 30px 0;
+    }
+
+    .dash-content .title i {
+        position: relative;
+        height: 35px;
+        width: 35px;
+        background-color: var(--primary-color);
+        border-radius: 6px;
+        color: var(--title-icon-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+    }
+
+    .dash-content .title .text {
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--text-color);
+        margin-left: 10px;
+    }
+
+    .profile-info {
+        width: 15%;
+        height: 15%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile-info img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        margin-left: 150vh;
+        align-items: center;
+    }
+
+    .profile-info .user-details {
+        font-size: 18px;
+    }
+
+    .change-password, .change-email {
+        margin-top: 30px;
+    }
+
+    .change-password input, .change-email input {
+        width: 50%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .change-password button, .change-email button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        align-items: center;
+        margin-left: 5%;
+    }
+    .navlink_icon {
+  position: relative;
+  font-size: 22px;
+  min-width: 50px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 6px;
+}
+.navlink_icon::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: calc(100% + 100px);
+  left: -20px;
+}
+.navlink_icon:hover {
+  background: var(--blue-color);
+}
+.user-details {
+        font-size: 20px; /* Taille de police augmentée */
+        font-weight: bold;
+    }
+.overview {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+
+<section class="dashboard">
+    <div class="dash-content">
+        <div class="">
+            <div class="title">
+                <i class="bx bx-cog"></i>
+                <span class="text">Réglages</span>
+            </div>
+            
+            <div class="profile-info">
+                <img src="static/images/avatar.webp" alt="Photo de profil">
+                </div>
+                <div class="user-details overview">
+                    <p>
+                        <i class="bx bx-user"></i>
+
+                        Nom Complet : 
+                        <span>{{ session['nom_prenom'] }}</span>
+                    </p>
+                    
+                    <p>
+                        
+                        <i class="bx bx-envelope"></i>
+                        Email : 
+                        {{ session['email'] }}
+                    </p>
+                    </div>
+                     <div class="change-email">
+                <h3>Modifier l'email</h3>
+                <input type="email" placeholder="{{ session['email'] }}">
+                <button>Enregistrer</button>
+            </div>
+            
+            </div>
+            
+            <div class="change-password">
+                <h3>Modifier le mot de passe</h3>
+                <input type="password" placeholder="Ancien mot de passe">
+                <input type="password" placeholder="Nouveau mot de passe">
+                <input type="password" placeholder="Confirmer le nouveau mot de passe">
+                <button>Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock centre %}

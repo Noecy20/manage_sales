@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metas, title, stylesheets, etc. -->
+</head>
+<body>
+    <div class="container">
+        <!-- Header, navigation, etc. -->
+        
+        <div class="form-container">
+            <h2>Inscription Gestionnaire</h2>
+            <form action="{{ url_for('inscription_gestionnaire') }}" method="POST">
+                <!-- Champs spécifiques pour l'inscription des gestionnaires -->
+                <input type="text" name="nom" placeholder="Nom" required>
+                <input type="text" name="prenom" placeholder="Prénom" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="matricule" placeholder="Matricule" required>
+                <input type="password" name="mot_de_passe" placeholder="Mot de passe" required>
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+
+        <!-- Footer, etc. -->
+    </div>
+</body>
+</html>
